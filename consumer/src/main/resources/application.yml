@@ -1,0 +1,11 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: haku-consumer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 5 # 拉取服务时间 默认30秒
