@@ -1,5 +1,5 @@
 server:
-  port: 10087
+  port: 10086
 spring:
   application:
     name: haku-eureka #作为微服务名称注入到eureka容器

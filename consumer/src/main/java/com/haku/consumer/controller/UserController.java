@@ -20,17 +20,18 @@ public class UserController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private DiscoveryClient discoveryClient;    // 包含了拉取的所有服务信息
+//    @Autowired
+//    private DiscoveryClient discoveryClient;    // 包含了拉取的所有服务信息
 
 
     @GetMapping
     @ResponseBody
     public User queryUserById(@RequestParam("id") Long id){
-        List<ServiceInstance> instances = discoveryClient.getInstances("haku-provider");
-        ServiceInstance serviceInstance = instances.get(0);
-        return this.restTemplate.getForObject("http://"+ serviceInstance.getHost() + ":"
-                + serviceInstance.getPort() + "/user/" + id, User.class);
+//        List<ServiceInstance> instances = discoveryClient.getInstances("haku-provider");
+//        ServiceInstance serviceInstance = instances.get(0);
+//        return this.restTemplate.getForObject("http://"+ serviceInstance.getHost() + ":"
+//                + serviceInstance.getPort() + "/user/" + id, User.class);
+        return this.restTemplate.getForObject("http://haku-provider/user/" + id, User.class);
     }
 
 }
