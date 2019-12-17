@@ -9,3 +9,17 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka
     registry-fetch-interval-seconds: 5 # 拉取服务时间 默认30秒
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间为6000ms 默认为1秒
+            # circuitBreaker.requestVolumeThreshold = 10  触发熔断的最小请求次数，默认20
+            # circuitBreaker.sleepWindowInMilliseconds  = 10000 触发熔断的失败请求最小占比，默认50%
+            # circuitBreaker.errorThresholdPercentage = 50  休眠时长，默认是5000毫秒
+feign:
+  hystrix:
+    enabled: true # 开启feign的熔断功能
